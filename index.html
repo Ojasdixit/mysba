@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Lalten | Quotation Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Khand:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --slate-25: #f8fafc;
+        --slate-50: #f1f5f9;
+        --slate-100: #e2e8f0;
+        --slate-200: #cbd5f5;
+        --slate-300: #cbd5f5;
+        --slate-400: #94a3b8;
+        --slate-500: #64748b;
+        --slate-600: #475569;
+        --slate-700: #334155;
+        --slate-800: #1e293b;
+        --blue-50: #eff6ff;
+        --blue-100: #dbeafe;
+        --blue-500: #3b82f6;
+        --blue-600: #2563eb;
+        --blue-700: #1d4ed8;
+        --green-50: #ecfdf5;
+        --green-200: #bbf7d0;
+        --green-500: #22c55e;
+        --yellow-100: #fef3c7;
+        --yellow-500: #fbbf24;
+        --bg-gradient: radial-gradient(circle at top, #ffffff 0%, #e2e8f0 100%);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: var(--bg-gradient);
+        color: var(--slate-800);
+        line-height: 1.6;
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      .hero {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+      }
+
+      .hero p {
+        margin: 0.25rem 0 0;
+        color: var(--slate-600);
+      }
+
+      .hero-contact {
+        text-align: right;
+        font-weight: 500;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 2rem auto;
+        padding: 0 1.5rem 3rem;
+      }
+
+      section {
+        background: #fff;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+        margin-bottom: 1.75rem;
+      }
+
+      h2.section-title {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        margin-top: 0;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
+
+      .meta-card {
+        border: 1px solid var(--slate-100);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        background: var(--slate-25);
+      }
+
+      .meta-card span.label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--slate-500);
+        margin-bottom: 0.35rem;
+      }
+
+      .meta-card strong {
+        font-size: 1.1rem;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .package-card {
+        border: 2px solid var(--slate-100);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: var(--slate-25);
+      }
+
+      .package-card.active {
+        border-color: var(--blue-500);
+        background: var(--blue-50);
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+      }
+
+      .package-card h3 {
+        margin: 0 0 0.25rem;
+      }
+
+      .package-card .hindi-label {
+        font-family: "Khand", "Poppins", sans-serif;
+        color: var(--slate-600);
+        letter-spacing: 0.5px;
+        font-size: 1.05rem;
+      }
+
+      .package-card .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--blue-600);
+        margin: 0.75rem 0 0.25rem;
+      }
+
+      .package-card .duration {
+        color: var(--slate-600);
+        font-size: 0.95rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.85rem 1.25rem;
+      }
+
+      .feature-item {
+        display: flex;
+        gap: 0.65rem;
+        align-items: flex-start;
+      }
+
+      .feature-item span.icon {
+        color: var(--green-500);
+        font-size: 1.1rem;
+      }
+
+      .feature-item p {
+        margin: 0;
+        font-size: 0.92rem;
+        color: var(--slate-700);
+      }
+
+      .bonus-pill {
+        background: linear-gradient(120deg, #fbbf24, #fb923c);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+        font-weight: 600;
+      }
+
+      .cost-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px dashed var(--slate-100);
+      }
+
+      .cost-row:last-of-type {
+        border-bottom: none;
+      }
+
+      .total-row {
+        background: var(--blue-50);
+        border-radius: 0.85rem;
+        padding: 1rem 1.25rem;
+        font-weight: 600;
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .payment-card {
+        background: var(--slate-50);
+        padding: 1rem;
+        border-radius: 0.85rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+      }
+
+      thead {
+        background: var(--slate-25);
+      }
+
+      th,
+      td {
+        padding: 0.9rem 0.75rem;
+        text-align: left;
+      }
+
+      tbody tr + tr {
+        border-top: 1px solid var(--slate-100);
+      }
+
+      .support-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+
+      .support-card {
+        border: 1px solid var(--slate-100);
+        border-radius: 1rem;
+        padding: 1.25rem;
+      }
+
+      .support-card.featured {
+        border-width: 2px;
+        border-color: var(--blue-500);
+        position: relative;
+        box-shadow: 0 12px 30px -12px rgba(37, 99, 235, 0.4);
+      }
+
+      .support-card .badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--blue-500);
+        color: #fff;
+        padding: 0.2rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+      }
+
+      .support-card ul {
+        padding-left: 1.2rem;
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--slate-600);
+      }
+
+      .terms-list {
+        display: grid;
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .terms-list h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1rem;
+      }
+
+      .download-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .download-button {
+        appearance: none;
+        border: none;
+        border-radius: 0.85rem;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        cursor: pointer;
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue-600);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .download-button.secondary {
+        background: var(--slate-600);
+      }
+
+      .download-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 20px rgba(37, 99, 235, 0.2);
+      }
+
+      footer {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--slate-500);
+        padding-bottom: 3rem;
+      }
+
+      .bilingual-tag {
+        font-family: "Khand", "Poppins", sans-serif;
+        font-size: 1.05rem;
+        color: var(--slate-600);
+        margin-top: 0.35rem;
+      }
+
+      .lang-selector {
+        display: inline-flex;
+        background: var(--slate-100);
+        border-radius: 999px;
+        padding: 0.25rem;
+        gap: 0.25rem;
+      }
+
+      .lang-btn {
+        appearance: none;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: transparent;
+        color: var(--slate-600);
+      }
+
+      .lang-btn.active {
+        background: #fff;
+        color: var(--slate-800);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+
+      .lang-btn:hover:not(.active) {
+        background: rgba(255,255,255,0.5);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      @media (max-width: 640px) {
+        section {
+          padding: 1.5rem;
+        }
+
+        .hero {
+          text-align: center;
+        }
+
+        .hero-contact {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <div>
+          <div class="lang-selector">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="hi">हिंदी</button>
+          </div>
+          <p class="bilingual-tag" data-lang="en">Urban Lalten · Shipio Group of Companies</p>
+          <p class="bilingual-tag hidden" data-lang="hi">अर्बन लालटेन · शिपियो समूह कंपनियां</p>
+          <h1 data-lang="en">Project Quotation Overview</h1>
+          <h1 class="hidden" data-lang="hi">परियोजना उद्धरण अवलोकन</h1>
+          <p data-lang="en">Full-Stack Web & Mobile Application Development</p>
+          <p class="hidden" data-lang="hi">फुल-स्टैक वेब व मोबाइल एप्लिकेशन विकास</p>
+          <p class="bilingual-tag hidden" data-lang="hi">पूर्ण डिजिटल समाधान · हैंडऑफ़ से सपोर्ट तक</p>
+        </div>
+        <div class="hero-contact">
+          <div data-lang="en">Call / WhatsApp: <strong>+91 98878 05771</strong></div>
+          <div class="hidden" data-lang="hi">कॉल / व्हाट्सऐप: <strong>+91 98878 05771</strong></div>
+          <div data-lang="en">Email: <strong>info@shipio.in</strong></div>
+          <div class="hidden" data-lang="hi">ईमेल: <strong>info@shipio.in</strong></div>
+          <div class="bilingual-tag hidden" data-lang="hi">कंपनी नाम: अर्बन लालटेन</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title" data-lang="en">Quotation Snapshot</h2>
+        <h2 class="section-title hidden" data-lang="hi">उद्धरण स्नैपशॉट</h2>
+        <div class="meta-grid">
+          <div class="meta-card">
+            <span class="label" data-lang="en">Issued On</span>
+            <span class="label hidden" data-lang="hi">जारी तिथि</span>
+            <strong id="issueDate">--/--/----</strong>
+          </div>
+          <div class="meta-card">
+            <span class="label" data-lang="en">Valid Until (30 days)</span>
+            <span class="label hidden" data-lang="hi">मान्यता (30 दिन)</span>
+            <strong id="validDate">--/--/----</strong>
+          </div>
+          <div class="meta-card">
+            <span class="label" data-lang="en">Selected Package</span>
+            <span class="label hidden" data-lang="hi">चयनित पैकेज</span>
+            <strong id="selectedPackageLabel">Standard Package</strong>
+          </div>
+          <div class="meta-card">
+            <span class="label" data-lang="en">Estimated Delivery</span>
+            <span class="label hidden" data-lang="hi">अंदाज़ित डिलीवरी</span>
+            <strong id="deliveryTimeline">8-10 weeks</strong>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-lang="en">Technology Stack & Advantages</h2>
+        <h2 class="section-title hidden" data-lang="hi">तकनीकी स्टैक और लाभ</h2>
+        
+        <div class="terms-list">
+          <div>
+            <h3 data-lang="en">Modern Technologies We Use</h3>
+            <h3 class="hidden" data-lang="hi">हम जो आधुनिक तकनीकें उपयोग करते हैं</h3>
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="icon">⚛️</span>
+                <p><strong data-lang="en">Next.js (React)</strong><span class="hidden" data-lang="hi">नेक्स्ट.जेएस (रिएक्ट)</span></p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">📱</span>
+                <p><strong data-lang="en">React Native</strong><span class="hidden" data-lang="hi">रिएक्ट नेटिव</span></p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🗄️</span>
+                <p><strong data-lang="en">Supabase (PostgreSQL)</strong><span class="hidden" data-lang="hi">सुपाबेस (PostgreSQL)</span></p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">☁️</span>
+                <p><strong data-lang="en">Vercel Hosting</strong><span class="hidden" data-lang="hi">वर्सेल होस्टिंग</span></p>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 data-lang="en">Why Modern Stack Beats Traditional PHP</h3>
+            <h3 class="hidden" data-lang="hi">आधुनिक स्टैक पारंपरिक PHP से बेहतर क्यों है</h3>
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="icon">🚀</span>
+                <p data-lang="en"><strong>Lightning Fast Performance</strong> - Server-side rendering and code splitting deliver instant page loads</p>
+                <p class="hidden" data-lang="hi"><strong>बिजली की गति से प्रदर्शन</strong> - सर्वर-साइड रेंडरिंग और कोड स्प्लिटिंग तत्काल पेज लोड देता है</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🎨</span>
+                <p data-lang="en"><strong>Modern UI/UX</strong> - Component-based architecture enables stunning, interactive interfaces</p>
+                <p class="hidden" data-lang="hi"><strong>आधुनिक UI/UX</strong> - कंपोनेंट-आधारित आर्किटेक्चर आश्चर्यजनक, इंटरैक्टिव इंटरफेस सक्षम करता है</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">📱</span>
+                <p data-lang="en"><strong>Mobile-First Design</strong> - React Native provides native app experience on both iOS and Android</p>
+                <p class="hidden" data-lang="hi"><strong>मोबाइल-पहले डिजाइन</strong> - रिएक्ट नेटिव iOS और Android दोनों पर नेटिव ऐप अनुभव प्रदान करता है</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🔄</span>
+                <p data-lang="en"><strong>Real-time Updates</strong> - WebSocket support enables live data synchronization</p>
+                <p class="hidden" data-lang="hi"><strong>रीयल-टाइम अपडेट</strong> - WebSocket समर्थन लाइव डेटा सिंक्रोनाइज़ेशन सक्षम करता है</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🛡️</span>
+                <p data-lang="en"><strong>Enhanced Security</strong> - Modern authentication and built-in XSS protection</p>
+                <p class="hidden" data-lang="hi"><strong>बढ़ी हुई सुरक्षा</strong> - आधुनिक प्रमाणीकरण और अंतर्निहित XSS सुरक्षा</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">📈</span>
+                <p data-lang="en"><strong>SEO Optimized</strong> - Automatic sitemap generation and meta tag management</p>
+                <p class="hidden" data-lang="hi"><strong>SEO अनुकूलित</strong> - स्वचालित साइटमैप जेनरेशन और मेटा टैग प्रबंधन</p>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 data-lang="en">Superior Look & Feel vs PHP Websites</h3>
+            <h3 class="hidden" data-lang="hi">PHP वेबसाइटों की तुलना में बेहतर लुक और फील</h3>
+            <div class="features-grid">
+              <div class="feature-item">
+                <span class="icon">✨</span>
+                <p data-lang="en"><strong>Smooth Animations</strong> - 60fps transitions and micro-interactions</p>
+                <p class="hidden" data-lang="hi"><strong>सहज एनिमेशन</strong> - 60fps ट्रांज़िशन और माइक्रो-इंटरैक्शन</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🎯</span>
+                <p data-lang="en"><strong>Responsive Design</strong> - Perfect adaptation to any screen size</p>
+                <p class="hidden" data-lang="hi"><strong>प्रतिक्रियाशील डिजाइन</strong> - किसी भी स्क्रीन आकार में पूर्ण अनुकूलन</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">🌙</span>
+                <p data-lang="en"><strong>Dark Mode Support</strong> - System-aware theme switching</p>
+                <p class="hidden" data-lang="hi"><strong>डार्क मोड समर्थन</strong> - सिस्टम-जागरूक थीम स्विचिंग</p>
+              </div>
+              <div class="feature-item">
+                <span class="icon">⚡</span>
+                <p data-lang="en"><strong>Instant Navigation</strong> - Single-page app experience with no page reloads</p>
+                <p class="hidden" data-lang="hi"><strong>तत्काल नेविगेशन</strong> - पेज रीलोड के बिना सिंगल-पेज ऐप अनुभव</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-lang="en">Select Your Package</h2>
+        <h2 class="section-title hidden" data-lang="hi">अपना पैकेज चुनें</h2>
+        <div class="package-grid" id="packageOptions"></div>
+
+        <div>
+          <h3 data-lang="en">Included Features</h3>
+          <h3 class="hidden" data-lang="hi">शामिल सुविधाएँ</h3>
+          <div class="features-grid" id="featureList"></div>
+        </div>
+
+        <div id="bonusSection" style="display: none; margin-top: 1.5rem">
+          <div class="bonus-pill" data-lang="en">Bonus · अतिरिक्त लाभ</div>
+          <div class="bonus-pill hidden" data-lang="hi">बोनस · अतिरिक्त लाभ</div>
+          <h3 style="margin-top: 0.5rem" data-lang="en">Additional Benefits</h3>
+          <h3 class="hidden" style="margin-top: 0.5rem" data-lang="hi">अतिरिक्त लाभ</h3>
+          <div class="features-grid" id="bonusList"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-lang="en">Cost Breakdown</h2>
+        <h2 class="section-title hidden" data-lang="hi">लागत विवरण</h2>
+        <div class="cost-row">
+          <span data-lang="en">Development & Setup</span>
+          <span class="hidden" data-lang="hi">डेवलपमेंट व सेटअप</span>
+          <strong id="subtotalValue">₹0</strong>
+        </div>
+        <div class="cost-row">
+          <span data-lang="en">GST (18%)</span>
+          <span class="hidden" data-lang="hi">GST (18%)</span>
+          <strong id="gstValue">₹0</strong>
+        </div>
+        <div class="cost-row total-row">
+          <span data-lang="en">Total Amount</span>
+          <span class="hidden" data-lang="hi">कुल राशि</span>
+          <strong id="totalValue">₹0</strong>
+        </div>
+
+        <div class="payment-grid">
+          <div class="payment-card">
+            <strong data-lang="en">Advance (30%)</strong>
+            <strong class="hidden" data-lang="hi">अग्रिम (30%)</strong>
+            <p id="advanceValue">₹0</p>
+          </div>
+          <div class="payment-card">
+            <strong data-lang="en">Mid-Project (40%)</strong>
+            <strong class="hidden" data-lang="hi">मध्य-परियोजना (40%)</strong>
+            <p id="midValue">₹0</p>
+          </div>
+          <div class="payment-card">
+            <strong data-lang="en">On Delivery (30%)</strong>
+            <strong class="hidden" data-lang="hi">डिलीवरी पर (30%)</strong>
+            <p id="finalValue">₹0</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">
+          <span data-lang="en">Annual Infrastructure Costs</span>
+          <span class="hidden" data-lang="hi">वार्षिक इन्फ्रास्ट्रक्चर लागत</span>
+          <span style="font-size: 0.85rem; font-weight: 400; color: var(--slate-500)" data-lang="en">
+            (Year 2 onwards)
+          </span>
+          <span class="hidden" style="font-size: 0.85rem; font-weight: 400; color: var(--slate-500)" data-lang="hi">
+            (वर्ष 2 से)
+          </span>
+        </h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th data-lang="en">Service</th>
+                <th class="hidden" data-lang="hi">सेवा</th>
+                <th style="text-align: right" data-lang="en">Monthly</th>
+                <th class="hidden" style="text-align: right" data-lang="hi">मासिक</th>
+                <th style="text-align: right" data-lang="en">Annual</th>
+                <th class="hidden" style="text-align: right" data-lang="hi">वार्षिक</th>
+              </tr>
+            </thead>
+            <tbody id="infraTable"></tbody>
+          </table>
+        </div>
+        <div style="margin-top: 1rem" id="infraNote" class="meta-card"></div>
+        <div style="margin-top: 1rem" class="meta-card">
+          <p data-lang="en">
+            <strong>Usage Note:</strong> The free tiers of Supabase and Vercel are subject to website and app usage up to 10,000 users per day. If usage exceeds this limit, upgrades will be charged at server costs and are not covered in the initial plan.
+          </p>
+          <p class="hidden" data-lang="hi">
+            <strong>उपयोग नोट:</strong> Supabase और Vercel की निःशुल्क टियर प्रतिदिन 10,000 उपयोगकर्ताओं तक वेबसाइट और ऐप उपयोग के अधीन हैं। यदि उपयोग इस सीमा से अधिक हो जाता है, तो अपग्रेड सर्वर लागत पर चार्ज किए जाएंगे और प्रारंभिक योजना में शामिल नहीं हैं।
+          </p>
+        </div>
+        <div style="margin-top: 1rem" class="meta-card">
+          <p data-lang="en">
+            <strong>App Store Submission Note:</strong> App submission is a lengthy process and can sometimes take up to 45 days for approval. Additionally, App Store and Play Store policies do not allow apps primarily for donation purposes, so we cannot integrate donation windows in the apps.
+          </p>
+          <p class="hidden" data-lang="hi">
+            <strong>ऐप स्टोर सबमिशन नोट:</strong> ऐप सबमिशन एक लंबी प्रक्रिया है और कभी-कभी अनुमोदन में 45 दिन तक का समय लग सकता है। इसके अलावा, ऐप स्टोर और प्ले स्टोर की नीतियां दान उद्देश्यों के लिए ऐप्स की अनुमति नहीं देती हैं, इसलिए हम ऐप्स में दान विंडो को एकीकृत नहीं कर सकते।
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">
+          <span data-lang="en">Post-Launch Support Plans</span>
+          <span class="hidden" data-lang="hi">लॉन्च के बाद सपोर्ट प्लान</span>
+          <span style="font-size: 0.9rem; font-weight: 400; color: var(--slate-500)" data-lang="en">
+            (After complimentary period)
+          </span>
+          <span class="hidden" style="font-size: 0.9rem; font-weight: 400; color: var(--slate-500)" data-lang="hi">
+            (निःशुल्क अवधि के बाद)
+          </span>
+        </h2>
+        <div class="support-grid">
+          <div class="support-card">
+            <h3>Basic</h3>
+            <p><strong style="font-size: 1.5rem">₹8,000</strong> / month</p>
+            <ul>
+              <li>Bug fixes (4 hrs/month)</li>
+              <li>Email support (72hr)</li>
+              <li>Security updates</li>
+            </ul>
+          </div>
+          <div class="support-card featured">
+            <div class="badge">POPULAR</div>
+            <h3>Standard</h3>
+            <p><strong style="font-size: 1.5rem">₹15,000</strong> / month</p>
+            <ul>
+              <li>Bug fixes (8 hrs/month)</li>
+              <li>Small feature tweaks</li>
+              <li>Priority support (24hr)</li>
+              <li>Monthly health check</li>
+            </ul>
+          </div>
+          <div class="support-card">
+            <h3>Premium</h3>
+            <p><strong style="font-size: 1.5rem">₹25,000</strong> / month</p>
+            <ul>
+              <li>Unlimited bug fixes</li>
+              <li>Feature work (16 hrs/month)</li>
+              <li>24/7 emergency support</li>
+              <li>Weekly performance review</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title" data-lang="en">Terms & Conditions · नियम व शर्तें</h2>
+        <h2 class="section-title hidden" data-lang="hi">नियम व शर्तें</h2>
+        <div class="terms-list">
+          <div>
+            <h3>1. Project Timeline</h3>
+            <p>
+              Estimated delivery is <span id="termsDuration">8-10 weeks</span> from the advance
+              payment date; client delays may extend the timeline.
+            </p>
+          </div>
+          <div>
+            <h3>2. Payment Terms</h3>
+            <p>Work begins post advance receipt and follows the payment milestones above.</p>
+          </div>
+          <div>
+            <h3>3. Scope Changes</h3>
+            <p>Additional or major feature requests will be estimated separately.</p>
+          </div>
+          <div>
+            <h3>4. Client Responsibilities</h3>
+            <p>Content, approvals, and timely feedback must be provided to avoid delays.</p>
+          </div>
+          <div>
+            <h3>5. App Store Submission</h3>
+            <p>Submission guidance is included, but approval timelines depend on Apple/Google.</p>
+          </div>
+          <div>
+            <h3>6. Support Period</h3>
+            <p>Free support covers bug fixes and minor tweaks; new modules are billed afresh.</p>
+          </div>
+          <div>
+            <h3>7. Ownership</h3>
+            <p>Full source code/IP transfers to the client after complete payment.</p>
+          </div>
+          <div>
+            <h3>8. Infrastructure</h3>
+            <p>Year 1 infra costs included; Year 2 onwards billed directly to providers.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; align-items: center">
+          <div>
+            <p style="margin: 0; color: var(--slate-500)">Need clarifications?</p>
+            <p style="margin: 0.25rem 0 0">
+              <strong>Email:</strong> info@shipio.in · <strong>Phone:</strong> +91 98878 05771
+            </p>
+          </div>
+          <div class="download-actions">
+            <button class="download-button" data-lang="en" data-lang-label-en="Download Quotation (English)" data-lang-label-hi="उद्धरण डाउनलोड करें (अंग्रेज़ी)">Download Quotation (English)</button>
+            <button class="download-button secondary" data-lang="hi" data-lang-label-en="Download Quotation (Hindi)" data-lang-label-hi="उद्धरण डाउनलोड करें (हिंदी)">उद्धरण डाउनलोड करें (हिंदी)</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Quotation valid for 30 days from issue date</p>
+        <p>धन्यवाद · Thank you for choosing Urban Lalten</p>
+      </footer>
+    </main>
+
+    <script>
+      const packages = {
+        standard: {
+          key: "standard",
+          name: { en: "Standard Package", hi: "स्टैंडर्ड पैकेज" },
+          price: 350000,
+          duration: { en: "8-10 weeks", hi: "8-10 सप्ताह" },
+          features: [
+            "Fully responsive Next.js website",
+            "iOS + Android React Native app",
+            "Comprehensive admin panel",
+            "Supabase backend setup",
+            "50+ admin-controlled components",
+            "Media management system",
+            "User authentication & roles",
+            "Push notifications setup",
+            "SEO optimization",
+            "Vercel deployment with CI/CD",
+            "App store submission (both stores)",
+            "Custom domain setup",
+            "SSL certificate configuration",
+            "GitHub repository with documentation",
+            "2 training sessions (2 hours each)",
+            "Video tutorials & documentation",
+            "6 months free support (bug fixes)",
+            "Monthly consultation call (1 hour)",
+            "Email support (48hr response)"
+          ],
+          featuresHindi: [
+            "पूर्णतः प्रतिक्रियाशील Next.js वेबसाइट",
+            "iOS + Android रिएक्ट नेटिव ऐप",
+            "व्यापक एडमिन पैनल",
+            "Supabase बैकएंड सेटअप",
+            "50+ एडमिन नियंत्रित कॉम्पोनेन्ट",
+            "मीडिया प्रबंधन प्रणाली",
+            "यूज़र प्रमाणीकरण व रोल प्रबंधन",
+            "पुश नोटिफिकेशन सेटअप",
+            "SEO अनुकूलन",
+            "CI/CD सहित Vercel डिप्लॉयमेंट",
+            "ऐप स्टोर सबमिशन (दोनों स्टोर)",
+            "कस्टम डोमेन सेटअप",
+            "SSL प्रमाणपत्र कॉन्फ़िगरेशन",
+            "डॉक्यूमेंटेशन सहित GitHub रेपो",
+            "2 प्रशिक्षण सत्र (प्रत्येक 2 घंटे)",
+            "वीडियो ट्यूटोरियल व डॉक्यूमेंटेशन",
+            "6 माह का निःशुल्क सपोर्ट (बग फिक्स)",
+            "मासिक परामर्श कॉल (1 घंटा)",
+            "ईमेल सपोर्ट (48 घंटे में प्रतिक्रिया)"
+          ],
+          bonuses: [
+            "Performance monitoring setup",
+            "Backup & disaster recovery plan",
+            "SEO audit report",
+            "Year 1 infrastructure costs included"
+          ],
+          bonusesHindi: [
+            "परफॉर्मेंस मॉनिटरिंग सेटअप",
+            "बैकअप व डिज़ास्टर रिकवरी प्लान",
+            "SEO ऑडिट रिपोर्ट",
+            "वर्ष 1 की इन्फ्रास्ट्रक्चर लागत शामिल"
+          ]
+        },
+        premium: {
+          key: "premium",
+          name: { en: "Premium Package", hi: "प्रीमियम पैकेज" },
+          price: 550000,
+          duration: { en: "10-12 weeks", hi: "10-12 सप्ताह" },
+          features: [
+            "Everything in Standard Package",
+            "Advanced analytics dashboard",
+            "Multi-language support (3 languages)",
+            "Advanced search with filters",
+            "Payment gateway integration",
+            "Email marketing integration",
+            "WhatsApp API integration",
+            "12 months free support",
+            "Bi-weekly feature updates",
+            "Priority support (24hr response)",
+            "4 training sessions (2 hours each)"
+          ],
+          featuresHindi: [
+            "स्टैंडर्ड पैकेज की सभी सुविधाएँ",
+            "उन्नत एनालिटिक्स डैशबोर्ड",
+            "मल्टी-लैंग्वेज सपोर्ट (3 भाषाएँ)",
+            "फ़िल्टर सहित उन्नत सर्च",
+            "पेमेंट गेटवे इंटीग्रेशन",
+            "ईमेल मार्केटिंग इंटीग्रेशन",
+            "व्हाट्सऐप API इंटीग्रेशन",
+            "12 माह का निःशुल्क सपोर्ट",
+            "द्वि-साप्ताहिक फीचर अपडेट",
+            "प्राथमिकता सपोर्ट (24 घंटे प्रतिक्रिया)",
+            "4 प्रशिक्षण सत्र (प्रत्येक 2 घंटे)"
+          ],
+          bonuses: [
+            "Social media auto-posting",
+            "2 years infrastructure costs included",
+            "Monthly performance reports",
+            "Advanced security audit"
+          ],
+          bonusesHindi: [
+            "सोशल मीडिया ऑटो-पोस्टिंग",
+            "2 वर्ष की इन्फ्रास्ट्रक्चर लागत शामिल",
+            "मासिक परफॉर्मेंस रिपोर्ट",
+            "उन्नत सुरक्षा ऑडिट"
+          ]
+        },
+        enterprise: {
+          key: "enterprise",
+          name: { en: "Enterprise Package", hi: "एंटरप्राइज़ पैकेज" },
+          price: 850000,
+          duration: { en: "12-14 weeks", hi: "12-14 सप्ताह" },
+          features: [
+            "Everything in Premium Package",
+            "Custom AI chatbot integration",
+            "Advanced reporting & BI dashboard",
+            "Third-party integrations (5+)",
+            "White-label mobile apps",
+            "Dedicated project manager",
+            "24/7 support for 12 months",
+            "Unlimited revisions during development",
+            "Custom workflow automation",
+            "6 training sessions (2 hours each)",
+            "Weekly progress meetings"
+          ],
+          featuresHindi: [
+            "प्रीमियम पैकेज की सभी सुविधाएँ",
+            "कस्टम AI चैटबॉट इंटीग्रेशन",
+            "उन्नत रिपोर्टिंग व BI डैशबोर्ड",
+            "तृतीय-पक्ष इंटीग्रेशन (5+)",
+            "व्हाइट-लेबल मोबाइल ऐप्स",
+            "समर्पित प्रोजेक्ट मैनेजर",
+            "12 माह के लिए 24/7 सपोर्ट",
+            "डेवलपमेंट के दौरान असीमित संशोधन",
+            "कस्टम वर्कफ़्लो ऑटोमेशन",
+            "6 प्रशिक्षण सत्र (प्रत्येक 2 घंटे)",
+            "साप्ताहिक प्रगति मीटिंग"
+          ],
+          bonuses: [
+            "Dedicated developer (3 months post-launch)",
+            "3 years infrastructure costs included",
+            "Quarterly feature roadmap planning",
+            "Priority feature development"
+          ],
+          bonusesHindi: [
+            "समर्पित डेवलपर (लॉन्च के बाद 3 माह)",
+            "3 वर्ष की इन्फ्रास्ट्रक्चर लागत शामिल",
+            "त्रैमासिक फीचर रोडमैप योजना",
+            "प्राथमिकता फीचर डेवलपमेंट"
+          ]
+        }
+      };
+
+      const infrastructureCosts = [
+        { item: "Supabase Pro", monthly: 2000, annual: 24000 },
+        { item: "Vercel Pro", monthly: 1600, annual: 19200 },
+        { item: "Domain Registration (.co.in)", monthly: 0, annual: 800 },
+        { item: "Backup Storage", monthly: 500, annual: 6000 },
+        { item: "Apple Developer Console", monthly: 0, annual: 11800 },
+        { item: "Google Play Console", monthly: 0, annual: 1500 },
+        { item: "Error Monitoring (Sentry)", monthly: 2000, annual: 24000 },
+        { item: "Email Service (SendGrid)", monthly: 1000, annual: 12000 }
+      ];
+
+      const docLabels = {
+        en: {
+          heading: "Urban Lalten · Project Quotation",
+          subheading: "Full-Stack Web & Mobile Application Development",
+          package: "Selected Package",
+          duration: "Estimated Delivery",
+          price: "Development & Setup",
+          gst: "GST (18%)",
+          total: "Total Project Value",
+          features: "Included Features",
+          bonuses: "Bonuses",
+          note: "Quotation auto-generated on",
+          validity: "Valid for 30 days",
+          contact: "For queries contact",
+          support: "Phone",
+          email: "Email"
+        },
+        hi: {
+          heading: "अर्बन लालटेन · परियोजना उद्धरण",
+          subheading: "फुल-स्टैक वेब व मोबाइल एप्लिकेशन विकास",
+          package: "चयनित पैकेज",
+          duration: "अंदाज़ित डिलीवरी",
+          price: "डेवलपमेंट व सेटअप",
+          gst: "GST (18%)",
+          total: "कुल परियोजना राशि",
+          features: "शामिल सुविधाएँ",
+          bonuses: "बोनस लाभ",
+          note: "उद्धरण जारी तिथि",
+          validity: "30 दिनों तक मान्य",
+          contact: "संपर्क जानकारी",
+          support: "फ़ोन",
+          email: "ईमेल"
+        }
+      };
+
+      let currentPackageKey = "standard";
+      let currentLang = "en";
+
+      const rupee = (value) => `₹${value.toLocaleString("en-IN")}`;
+
+      const setLanguage = (lang) => {
+        currentLang = lang;
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+          btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+        document.querySelectorAll("[data-lang]").forEach(el => {
+          if (el.classList.contains("lang-btn")) {
+            el.classList.toggle("active", el.dataset.lang === lang);
+          } else {
+            const shouldShow = el.dataset.lang === lang;
+            el.classList.toggle("hidden", !shouldShow);
+          }
+        });
+        
+        // Update download button labels
+        document.querySelectorAll(".download-button").forEach(btn => {
+          const labelKey = `langLabel${lang.charAt(0).toUpperCase() + lang.slice(1)}`;
+          const label = btn.dataset[labelKey];
+          if (label) btn.textContent = label;
+        });
+        
+        renderPackageDetails();
+        renderInfraNote(packages[currentPackageKey]);
+      };
+
+      const issueDateEl = document.getElementById("issueDate");
+      const validDateEl = document.getElementById("validDate");
+      const packageLabelEl = document.getElementById("selectedPackageLabel");
+      const deliveryEl = document.getElementById("deliveryTimeline");
+      const subtotalEl = document.getElementById("subtotalValue");
+      const gstEl = document.getElementById("gstValue");
+      const totalEl = document.getElementById("totalValue");
+      const advanceEl = document.getElementById("advanceValue");
+      const midEl = document.getElementById("midValue");
+      const finalEl = document.getElementById("finalValue");
+      const featureListEl = document.getElementById("featureList");
+      const bonusSectionEl = document.getElementById("bonusSection");
+      const bonusListEl = document.getElementById("bonusList");
+      const packageOptionsEl = document.getElementById("packageOptions");
+      const infraTableEl = document.getElementById("infraTable");
+      const infraNoteEl = document.getElementById("infraNote");
+      const termsDurationEl = document.getElementById("termsDuration");
+
+      const renderDates = () => {
+        const today = new Date();
+        const valid = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+        issueDateEl.textContent = today.toLocaleDateString("en-IN");
+        validDateEl.textContent = valid.toLocaleDateString("en-IN");
+      };
+
+      const renderPackageButtons = () => {
+        packageOptionsEl.innerHTML = "";
+        Object.values(packages).forEach((pkg) => {
+          const button = document.createElement("button");
+          button.className = `package-card ${pkg.key === currentPackageKey ? "active" : ""}`;
+          button.innerHTML = `
+            <h3>${pkg.name[currentLang]}</h3>
+            <div class="price">₹${(pkg.price / 100000).toFixed(2)}L</div>
+            <div class="duration">${pkg.duration[currentLang]}</div>
+          `;
+          button.addEventListener("click", () => {
+            currentPackageKey = pkg.key;
+            renderPackageButtons();
+            renderPackageDetails();
+          });
+          packageOptionsEl.appendChild(button);
+        });
+      };
+
+      const renderPackageDetails = () => {
+        const pkg = packages[currentPackageKey];
+        packageLabelEl.textContent = pkg.name[currentLang];
+        deliveryEl.textContent = pkg.duration[currentLang];
+        termsDurationEl.textContent = pkg.duration[currentLang];
+
+        const subtotal = pkg.price;
+        const gst = subtotal * 0.18;
+        const total = subtotal + gst;
+        subtotalEl.textContent = rupee(subtotal);
+        gstEl.textContent = rupee(gst);
+        totalEl.textContent = rupee(total);
+        advanceEl.textContent = rupee(total * 0.3);
+        midEl.textContent = rupee(total * 0.4);
+        finalEl.textContent = rupee(total * 0.3);
+
+        const features = currentLang === "hi" ? pkg.featuresHindi : pkg.features;
+        featureListEl.innerHTML = features
+          .map(
+            (item) => `
+            <div class="feature-item">
+              <span class="icon">✔</span>
+              <p><strong>${item}</strong></p>
+            </div>
+          `
+          )
+          .join("");
+
+        if (pkg.bonuses.length) {
+          bonusSectionEl.style.display = "block";
+          const bonuses = currentLang === "hi" ? pkg.bonusesHindi : pkg.bonuses;
+          bonusListEl.innerHTML = bonuses
+            .map(
+              (item) => `
+              <div class="feature-item">
+                <span class="icon">🎁</span>
+                <p><strong>${item}</strong></p>
+              </div>
+            `
+            )
+            .join("");
+        } else {
+          bonusSectionEl.style.display = "none";
+        }
+
+        renderInfraNote(pkg);
+      };
+
+      const renderInfraTable = () => {
+        const rows = infrastructureCosts
+          .map((item) => `
+            <tr>
+              <td>${item.item}</td>
+              <td style="text-align:right">${item.monthly ? rupee(item.monthly) : "-"}</td>
+              <td style="text-align:right">${rupee(item.annual)}</td>
+            </tr>
+          `)
+          .join("");
+        const totalMonthly = infrastructureCosts.reduce((sum, item) => sum + item.monthly, 0);
+        const totalAnnual = infrastructureCosts.reduce((sum, item) => sum + item.annual, 0);
+        infraTableEl.innerHTML = `${rows}
+          <tr>
+            <td style="font-weight:600">Total Annual Cost</td>
+            <td style="text-align:right; font-weight:600">${rupee(totalMonthly)}</td>
+            <td style="text-align:right; font-weight:700; color: var(--blue-600)">${rupee(totalAnnual)}</td>
+          </tr>`;
+      };
+
+      const renderInfraNote = (pkg) => {
+        const totalAnnual = infrastructureCosts.reduce((sum, item) => sum + item.annual, 0);
+        const noteText = currentLang === "en" 
+          ? `Note: Year 1 infrastructure costs (${rupee(totalAnnual)}) are covered in the <strong>${pkg.name.en}</strong>. Year 2 onwards, they will be billed directly to service providers.`
+          : `ध्यान दें: वर्ष 1 की इन्फ्रास्ट्रक्चर लागत (${rupee(totalAnnual)}) पैकेज में शामिल है। वर्ष 2 से, ये सीधे सेवा प्रदाताओं को बिल की जाएगी।`;
+        infraNoteEl.innerHTML = `<strong>${currentLang === "en" ? "Note:" : "ध्यान दें:"}</strong> ${noteText}`;
+      };
+
+      const buildDoc = (language) => {
+        const pkg = packages[currentPackageKey];
+        const labels = docLabels[language];
+        const today = new Date();
+        const valid = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+        const subtotal = pkg.price;
+        const gst = subtotal * 0.18;
+        const total = subtotal + gst;
+        const features = language === "hi" ? pkg.featuresHindi : pkg.features;
+        const bonuses = language === "hi" ? pkg.bonusesHindi : pkg.bonuses;
+        const duration = pkg.duration[language === "hi" ? "hi" : "en"];
+        const packageName = pkg.name[language === "hi" ? "hi" : "en"];
+
+        return `<!DOCTYPE html>
+<html lang="${language === "hi" ? "hi" : "en"}">
+<head>
+<meta charset="UTF-8" />
+<title>${labels.heading}</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;padding:40px;color:#0f172a;}
+h1{margin:0;color:#1d4ed8;}
+h2{margin-top:2rem;color:#0f172a;}
+ul{padding-left:1.2rem;}
+table{width:100%;border-collapse:collapse;margin-top:1rem;}
+th,td{border:1px solid #e2e8f0;padding:0.65rem;text-align:left;}
+th{background:#f8fafc;}
+.section{margin-top:1.5rem;}
+</style>
+</head>
+<body>
+  <h1>${labels.heading}</h1>
+  <p>${labels.subheading}</p>
+  <p><strong>${labels.package}:</strong> ${packageName}</p>
+  <p><strong>${labels.duration}:</strong> ${duration}</p>
+  <table>
+    <tr><th>${labels.price}</th><td>${rupee(subtotal)}</td></tr>
+    <tr><th>${labels.gst}</th><td>${rupee(gst)}</td></tr>
+    <tr><th>${labels.total}</th><td>${rupee(total)}</td></tr>
+  </table>
+  <div class="section">
+    <h2>${labels.features}</h2>
+    <ul>
+      ${features.map((feature) => `<li>${feature}</li>`).join("")}
+    </ul>
+  </div>
+  ${bonuses.length ? `<div class="section">
+    <h2>${labels.bonuses}</h2>
+    <ul>${bonuses.map((bonus) => `<li>${bonus}</li>`).join("")}</ul>
+  </div>` : ""}
+  <div class="section">
+    <p><strong>${labels.note}:</strong> ${today.toLocaleDateString("en-IN")} · ${labels.validity} (${valid.toLocaleDateString("en-IN")})</p>
+    <p><strong>${labels.contact}:</strong> Urban Lalten (Shipio Group of Companies)</p>
+    <p><strong>${labels.support}:</strong> +91 98878 05771 · <strong>${labels.email}:</strong> info@shipio.in</p>
+  </div>
+</body>
+</html>`;
+      };
+
+      const handleDownload = (language) => {
+        const doc = buildDoc(language);
+        const blob = new Blob([doc], { type: "application/msword" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `Urban-Lalten-Quotation-${language === "hi" ? "HI" : "EN"}.doc`;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      };
+
+      const init = () => {
+        renderDates();
+        renderPackageButtons();
+        renderPackageDetails();
+        renderInfraTable();
+        
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+          btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+        });
+        
+        document.querySelectorAll(".download-button").forEach((btn) =>
+          btn.addEventListener("click", () => handleDownload(btn.dataset.lang))
+        );
+      };
+
+      init();
+    </script>
+  </body>
+</html>
